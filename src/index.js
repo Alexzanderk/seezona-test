@@ -4,14 +4,16 @@ import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
 import promiseMiddleware from 'redux-promise';
 import thunk from 'redux-thunk';
-import App from './components/App';
+import AppContainer from './containers/AppContainer';
 import reducers from './reducers';
 
-const storeWithMiddleware = applyMiddleware(promiseMiddleware, thunk)(createStore);
+import logger from 'redux-logger'
+
+const storeWithMiddleware = applyMiddleware(promiseMiddleware, thunk, logger)(createStore);
 
 ReactDOM.render(
 	<Provider store={storeWithMiddleware(reducers)}>
-		<App />
+		<AppContainer />
 	</Provider>,
 	document.getElementById('root')
 );

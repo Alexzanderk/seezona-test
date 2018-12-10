@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { getWeather, requestWeather, removeAlert } from '../actions';
-import FormFields from '../components/Form/FormFields';
+import { getWeather, requestWeather } from '../actions';
+import Form from '../components/Form/Form';
 
-class Form extends Component {
+class FormContainer extends Component {
 	state = {
 		formdata: {
 			city: {
@@ -56,23 +56,12 @@ class Form extends Component {
 
 	render() {
 		return (
-			<div className="search">
-				<h1>Look the weather in your city!</h1>
-				<form className="form-search" onSubmit={this.submitForm}>
-					<FormFields
-						alert={this.props.alert}
-						formdata={this.state.formdata.city}
-						change={e => {
-							e.persist();
-							this.handleChange(e);
-						}}
-					/>
-					<FormFields
-						formdata={this.state.formdata.units}
-						change={this.handleChange}
-					/>
-				</form>
-			</div>
+			<Form
+				alert={this.props.alert}
+				state={this.state}
+				change={this.handleChange}
+				submitForm={this.submitForm}
+			/>
 		);
 	}
 }
@@ -83,4 +72,4 @@ const mapStateToProps = state => ({
 	loading: state.loading
 });
 
-export default connect(mapStateToProps)(Form);
+export default connect(mapStateToProps)(FormContainer);

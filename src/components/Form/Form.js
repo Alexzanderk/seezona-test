@@ -1,11 +1,23 @@
 import React from 'react';
-import FormContainer from '../../containers/Form';
+import FormFields from './FormFields';
+
 import './style.sass';
 
-const Form = () => {
+const Form = ({alert, state, change, submitForm}) => {
 	return (
-		<div>
-			<FormContainer />
+		<div className="search">
+			<h1>Look the weather in your city!</h1>
+			<form className="form-search" onSubmit={submitForm}>
+				<FormFields
+					alert={alert}
+					formdata={state.formdata.city}
+					change={change}
+				/>
+				<FormFields
+					formdata={state.formdata.units}
+					change={change}
+				/>
+			</form>
 		</div>
 	);
 };

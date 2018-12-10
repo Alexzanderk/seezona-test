@@ -5,14 +5,10 @@ import { BounceLoader } from 'react-spinners';
 
 import Alert from './Alert';
 import { formatTemperature } from '../utils/formatTemperature';
+
 import './styles.sass';
 
-const WeatherInfo = props => {
-	const {
-		loading,
-		alert,
-		weather: { weather, unit }
-	} = props;
+const WeatherInfo = ({ loading, alert, weather: { weather, unit } }) => {
 	return (
 		<div className="info">
 			{!loading && weather ? (
@@ -33,7 +29,7 @@ const WeatherInfo = props => {
 									name="temperature-high"
 								/>
 							</div>
-							<div className='value'>
+							<div className="value">
 								{weather.main.temp} {formatTemperature(unit)}
 							</div>
 
@@ -44,7 +40,7 @@ const WeatherInfo = props => {
 									name="temperature-low"
 								/>
 							</div>
-							<div className='value'>
+							<div className="value">
 								{weather.main.temp_min}{' '}
 								{formatTemperature(unit)}
 							</div>
@@ -56,7 +52,7 @@ const WeatherInfo = props => {
 									name="temperature-high"
 								/>
 							</div>
-							<div className='value'>
+							<div className="value">
 								{weather.main.temp_max}{' '}
 								{formatTemperature(unit)}
 							</div>
@@ -65,25 +61,31 @@ const WeatherInfo = props => {
 								<span>Wind</span>
 								<FontAwesome className="w-ico " name="wind" />
 							</div>
-							<div className='value'>{weather.wind.speed} m/s</div>
+							<div className="value">
+								{weather.wind.speed} m/s
+							</div>
 
 							<div className="props humidity">
 								<span>Humidity</span>
 								<FontAwesome className="w-ico " name="water" />
 							</div>
-							<div className='value'>{weather.main.humidity} %</div>
+							<div className="value">
+								{weather.main.humidity} %
+							</div>
 
 							<div className="props pressure">
 								<span>Pressure</span>
 								<FontAwesome className="w-ico " name="weight" />
 							</div>
-							<div className='value'>{weather.main.pressure} hpa</div>
+							<div className="value">
+								{weather.main.pressure} hpa
+							</div>
 
 							<div className="props sunrise">
 								<span>Sunrise</span>
 								<FontAwesome className="w-ico " name="sun" />
 							</div>
-							<div className='value'>
+							<div className="value">
 								{moment(weather.sys.sunrise).format('LT')}
 							</div>
 
@@ -91,12 +93,16 @@ const WeatherInfo = props => {
 								<span>Sunset</span>
 								<FontAwesome className="w-ico " name="moon" />
 							</div>
-							<div className='value'>
+							<div className="value">
 								{moment(weather.sys.sunset).format('LT')}
 							</div>
 						</div>
 					) : (
-						<Alert message={weather.message} isVisible={alert} />
+						<Alert
+							alert={alert}
+							message={weather.message}
+							isVisible={alert}
+						/>
 					)}
 				</div>
 			) : (

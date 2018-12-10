@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
 
 class Alert extends Component {
 	state = {
@@ -33,8 +32,5 @@ class Alert extends Component {
 		) : null;
 	}
 }
-const mapStateToProps = state => ({
-	alert: state.alert
-});
 
-export default connect(mapStateToProps)(Alert);
+export default Alert;
