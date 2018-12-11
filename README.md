@@ -1,6 +1,6 @@
 # Seezona test work
 
-## Deploy on [Now](https://zeit.co/now) visit application link[https://seezona-ddngpmizdr.now.sh/](https://seezona-ddngpmizdr.now.sh/)
+## Deploy on [Now](https://zeit.co/now) visit application link[https://seezona-fvdyhddljm.now.sh/](https://seezona-fvdyhddljm.now.sh/)
 
 Download repo or clone
 
