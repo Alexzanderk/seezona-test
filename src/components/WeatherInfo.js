@@ -8,7 +8,7 @@ import { formatTemperature } from '../utils/formatTemperature';
 
 import './styles.sass';
 
-const WeatherInfo = ({ loading, alert, weather: { weather, unit } }) => {
+const WeatherInfo = ({ loading, alert, weather, unit }) => {
 	return (
 		<div className="info">
 			{!loading && weather ? (

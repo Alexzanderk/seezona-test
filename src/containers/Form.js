@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { getWeather, requestWeather } from '../actions';
+import { getWeather, requestWeather } from '../store/actions';
 import Form from '../components/Form/Form';
 
 class FormContainer extends Component {
@@ -68,6 +68,7 @@ class FormContainer extends Component {
 
 const mapStateToProps = state => ({
 	weather: state.weather,
+	unit: state.weather,
 	alert: state.alert,
 	loading: state.loading
 });

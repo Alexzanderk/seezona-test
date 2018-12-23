@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 class Alert extends Component {
 	state = {
 		message: this.props.message,
-		duration: this.props.duration || 5000,
+		duration: this.props.duration || 2000,
 		isVisible: this.props.alert
 	};
 
