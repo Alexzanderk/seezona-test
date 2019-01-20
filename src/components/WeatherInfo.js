@@ -2,6 +2,7 @@ import React from 'react';
 import FontAwesome from 'react-fontawesome';
 import moment from 'moment';
 import { BounceLoader } from 'react-spinners';
+import PropTypes from 'prop-types';
 
 import Alert from './Alert';
 import { formatTemperature } from '../utils/formatTemperature';
@@ -10,10 +11,10 @@ import './styles.sass';
 
 const WeatherInfo = ({ loading, alert, weather, unit }) => {
 	return (
-		<div className="info">
+		<div className="info" data-test="component-weatherInfo">
 			{!loading && weather ? (
 				<div>
-					{weather.code === undefined ? (
+					{weather.cod === 200 && weather.code === undefined ? (
 						<div className="weather">
 							<h1>{weather.name}</h1>
 							<img
@@ -117,6 +118,13 @@ const WeatherInfo = ({ loading, alert, weather, unit }) => {
 			)}
 		</div>
 	);
+};
+
+WeatherInfo.propTypes = {
+	loading: PropTypes.bool.isRequired,
+	alert: PropTypes.bool,
+	weather: PropTypes.object.isRequired,
+	unit: PropTypes.string
 };
 
 export default WeatherInfo;

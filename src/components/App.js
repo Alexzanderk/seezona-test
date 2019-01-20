@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import Form from '../containers/Form';
+import Form from '../containers/FormContainer';
 import WeatherInfo from './WeatherInfo';
 
 const Create = styled.div`

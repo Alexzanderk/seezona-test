@@ -57,9 +57,10 @@ class FormContainer extends Component {
 	render() {
 		return (
 			<Form
+				data-test="container-form"
 				alert={this.props.alert}
 				state={this.state}
-				change={this.handleChange}
+				change={e => this.handleChange(e)}
 				submitForm={this.submitForm}
 			/>
 		);

@@ -6,7 +6,11 @@ const FormFields = ({ formdata, change, alert }) => {
 		switch (formdata.element) {
 			case 'input':
 				formTemplate = (
-					<label className="input" htmlFor={formdata.config.name}>
+					<label
+						data-test="component-formfield"
+						className="input"
+						htmlFor={formdata.config.name}
+					>
 						<input
 							className={alert ? 'error' : ''}
 							id={formdata.config.name}
@@ -26,6 +30,7 @@ const FormFields = ({ formdata, change, alert }) => {
 			case 'select':
 				formTemplate = (
 					<select
+						data-test="component-formfield"
 						value={formdata.value}
 						name={formdata.config.name}
 						onChange={e => change(e)}

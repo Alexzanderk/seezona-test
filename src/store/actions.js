@@ -9,7 +9,8 @@ export const getWeather = (city, unit) => {
 		`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=${unit}&appid=040d409174c754d7cb6ab9137c5c40a1`
 	);
 	return dispatch => {
-		request
+		return axios
+			.get(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=${unit}&appid=040d409174c754d7cb6ab9137c5c40a1`)
 			.then(({ data }) => {
 				dispatch({
 					type: GET_ALERT,

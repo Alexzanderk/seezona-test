@@ -4,16 +4,16 @@ import promise from 'redux-promise';
 import thunk from 'redux-thunk';
 import logger from 'redux-logger';
 
-const state = {
+export const initialState = {
 	weather: null,
-	alert: null,
-	loading: null,
-	unit: null
+	alert: false,
+	loading: false,
+	unit: undefined
 };
 
 export default createStore(
 	reducer,
-	state,
+	initialState,
 	applyMiddleware(
 		promise,
 		thunk,
